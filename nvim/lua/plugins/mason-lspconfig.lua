@@ -1,0 +1,44 @@
+local mason = {
+	
+	lazy = false,
+  "williamboman/mason.nvim",
+	cmd = "Mason",
+	event = "BufReadPre",
+	opts = {
+		ui = {
+			icons = {
+				package_installed = "✓",
+				package_pending = "➜",
+				package_uninstalled = "✗",
+			},
+		},
+	},
+}
+
+local mason_lspconfig = {
+	"williamboman/mason-lspconfig.nvim",
+	opts = {
+		ensure_installed = {
+			"solidity_ls",
+			"efm",
+			"bashls",
+			"ts_ls",
+			"tailwindcss",
+			"pyright",
+			"lua_ls",
+			"emmet_ls",
+			"jsonls",
+			"clangd",
+			"dockerls",
+      'svelte'
+		},
+		automatic_installation = true,
+	},
+	event = "BufReadPre",
+	dependencies = "williamboman/mason.nvim",
+}
+
+return {
+	mason,
+	mason_lspconfig,
+}
